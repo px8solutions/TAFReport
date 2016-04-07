@@ -1,0 +1,18 @@
+﻿@model List<List<string>>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<table border="1">
+    <tr><td>Spreadsheet</td><td>Hostname</td><td>Location</td><td>Total Time</td><td>Total Count</td><td>Last Session</td></tr>
+    @foreach (List<string> row in Model)
+    {
+    <tr>
+        @foreach(string col in row)
+         {
+        <td> @col</td>
+        }
+    </tr>
+    }
+</table>

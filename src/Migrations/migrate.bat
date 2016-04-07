@@ -1,0 +1,3 @@
+..\packages\FluentMigrator.1.6.1\tools\Migrate.exe /connectionStringConfigPath "../TAFImporter/App.config" /connectionString "%1" /provider SqlServer2012 /assembly "obj/Debug/Migrations.dll" /task rollback:all
+
+..\packages\FluentMigrator.1.6.1\tools\Migrate.exe /connectionStringConfigPath "../TAFImporter/App.config" /connectionString "%1" /provider SqlServer2012 /assembly "obj/Debug/Migrations.dll" /task migrate

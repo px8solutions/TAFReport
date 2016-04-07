@@ -1,0 +1,26 @@
+﻿exec sp_configure
+
+exec sp_configure 'clr enabled',1
+
+reconfigure
+
+create assembly SQLServerObjects from 'N:\TAFReportSimple\src\SQLServerObjects\bin\Debug\SQLServerObjects.dll' with permission_set =safe
+
+alter assembly SQLServerObjects from 'N:\TAFReportSimple\src\SQLServerObjects\bin\Debug\SQLServerObjects.dll' with permission_set =safe
+
+drop function hello()
+
+create function hello() returns nvarchar(2000) 
+as external name[SQLServerObjects].[SQLServerObjects.Functions].[Hello];
+GO
+
+
+--drop function Hello;
+
+--CREATE FUNCTION Reduce(@total_time_per_pc as real, @total_count_per_room as int) RETURNS int
+--AS EXTERNAL NAME [SQLServerObjects].[SqlServerObjects.Functions].[Reduce]; 
+--GO
+
+select dbo.Reduce(0,5);
+
+SELECT dbo.hello();
